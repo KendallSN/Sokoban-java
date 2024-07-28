@@ -1,12 +1,13 @@
-package sokoban;
+package sokoban.Controllers;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import sokoban.App;
 
-public class SecondaryController {
+public class levelSelectMenuController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+        App.setRoot("mainMenu");
     }
 }
