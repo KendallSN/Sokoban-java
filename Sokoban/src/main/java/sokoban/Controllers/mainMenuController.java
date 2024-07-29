@@ -1,20 +1,26 @@
 package sokoban.Controllers;
 
 import java.io.IOException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import sokoban.App;
 
-public class mainMenuController {
-    @FXML
-    public Button actionButton;
+public class mainMenuController{
     
     @FXML
-    private void switchToSecondary() throws IOException {
+    public Button actionButton;
+    @FXML
+    private void newGameOnAction() throws IOException {
         App.setRoot("levelSelectMenu");
     }
     @FXML
-    private void doAction() throws IOException {
-        switchToSecondary();
+    void continueOnAction(ActionEvent event) {
+        
     }
+    @FXML
+    void quitOnAction(ActionEvent event) {
+        
+    }
+
 }
