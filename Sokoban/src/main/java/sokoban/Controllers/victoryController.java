@@ -7,7 +7,19 @@ import sokoban.App;
 
 public class victoryController {
     @FXML
-    public Button actionButton;
+    private Button levelSelectionButton;
+
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private Button quitButton;
+
+    @FXML
+    private Button repetitionButton;
+
+    @FXML
+    private Button returnMenuButton;
     
     @FXML
     private void switchToSecondary() throws IOException {
