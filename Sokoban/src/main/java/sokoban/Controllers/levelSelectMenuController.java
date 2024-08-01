@@ -9,12 +9,13 @@ import javafx.scene.image.ImageView;
 import sokoban.App;
 
 public class levelSelectMenuController {
+    public static int lvlSelected=0;
     @FXML
     private Button level1Button;
     
     @FXML
     private Button level2Button;
-
+    
     @FXML
     private Button level3Button;
 
@@ -35,8 +36,33 @@ public class levelSelectMenuController {
         App.setRoot("mainMenu");
     }
     @FXML
-    private void onActionTest() throws IOException {
+    void pressLvl1Button(ActionEvent event) throws IOException {
         App.setRoot("game");
+        lvlSelected=1;
+    }
+
+    @FXML
+    void pressLvl2Button(ActionEvent event) throws IOException {
+        App.setRoot("game");
+        lvlSelected=2;
+    }
+
+    @FXML
+    void pressLvl3Button(ActionEvent event) throws IOException {
+        App.setRoot("game");
+        lvlSelected=3;
+    }
+
+    @FXML
+    void pressLvl4Button(ActionEvent event) throws IOException {
+        App.setRoot("game");
+        lvlSelected=4;
+    }
+
+    @FXML
+    void pressLvl5Button(ActionEvent event) throws IOException {
+        App.setRoot("game");
+        lvlSelected=5;
     }
     @FXML
     void onActionQuit(ActionEvent event) {

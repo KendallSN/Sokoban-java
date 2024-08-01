@@ -4,16 +4,7 @@ public class ListGrid {
     private int numbRows;
     private int numbColumns;
     private NodeGrid firstElement;
-    private int numbElements;
-    private boolean isEmpty;
 
-    public ListGrid(int numbRows,int numbColumns) {
-        this.numbRows = numbRows;
-        this.numbColumns = numbColumns;
-        this.firstElement = null;
-        this.numbElements = 0;
-        this.isEmpty=true;
-    }
     public ListGrid(int numbRows,int numbColumns,char elements[]) {
         this.numbRows = numbRows;
         this.numbColumns = numbColumns;
@@ -32,7 +23,7 @@ public class ListGrid {
             cont++;
         }
         for (int i = 1; i < numbRows; i++) {
-        NodeGrid nodeGridTop= this.firstElement;
+            NodeGrid nodeGridTop= this.firstElement;
             for (int j = 0; j < numbColumns; j++) {
                 if(j==0){
                     for (int k = 0; k < i-1; k++){
@@ -61,14 +52,14 @@ public class ListGrid {
         return firstElement;
     }
 
-//    private NodeGrid getElement(int row,int column){
-//        NodeGrid auxNode= this.firstElement;
-//        for (int i = 0; i < row; i++) {
-//            auxNode=auxNode.getDown();
-//        }
-//        for (int i = 0; i < column; i++) {
-//            auxNode=auxNode.getRight();
-//        }
-//        return auxNode;
-//    }
+    public NodeGrid getElement(int row,int column){
+        NodeGrid auxNode= this.firstElement;
+        for (int i = 0; i < row; i++) {
+            auxNode=auxNode.getDown();
+        }
+        for (int i = 0; i < column; i++) {
+            auxNode=auxNode.getRight();
+        }
+        return auxNode;
+    }
 }

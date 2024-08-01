@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import sokoban.App;
+import sokoban.models.FileTextReader;
 import sokoban.models.ListGrid;
 
 public class mainMenuController implements Initializable{
@@ -30,10 +31,20 @@ public class mainMenuController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        char[] miVectorDeChar = {'a', 'b', 'c','d',
-                                 'e', 'f','d', 'e',
-                                 'f','d', 'e', 'x'};
-        ListGrid listGrid =new ListGrid(3,4,miVectorDeChar);
+        
+        FileTextReader a= new FileTextReader();
+        
+        char[] miVectorDeChar = a.getListaChar().get(4);
+        
+        ListGrid listGrid = new ListGrid(11,11, miVectorDeChar);
+        
+        for (int i = 0; i < 11; i++) {
+            for (int k = 0; k < 11; k++) {
+                System.out.print(listGrid.getElement(i, k).getElement()+" ");
+            } 
+             System.out.println("");
         }
+        
+    }
 
 }
