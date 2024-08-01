@@ -1,6 +1,8 @@
 package sokoban.Controllers;
 
 import java.io.IOException;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -36,4 +38,9 @@ public class levelSelectMenuController {
     private void onActionTest() throws IOException {
         App.setRoot("game");
     }
+    @FXML
+    void onActionQuit(ActionEvent event) {
+         Platform.exit();
+    }
+
 }

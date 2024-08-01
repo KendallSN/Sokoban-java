@@ -15,9 +15,9 @@
                <children>
                   <Button fx:id="nextButton" onAction="#switchToSecondary" text="Siguiente" />
                   <Button fx:id="repetitionButton" onAction="#doAction" text="Repetición" />
-                  <Button fx:id="levelSelectionButton" mnemonicParsing="false" text="Seleccionar Nivel" />
-                  <Button fx:id="returnMenuButton" mnemonicParsing="false" text="Volver al Menu" />
-                  <Button fx:id="quitButton" mnemonicParsing="false" text="Salir" />
+                  <Button fx:id="levelSelectionButton" mnemonicParsing="false" onAction="#switchToSecondary" text="Seleccionar Nivel" />
+                  <Button fx:id="returnMenuButton" mnemonicParsing="false" onAction="#onActionReturnMenu" text="Volver al Menu" />
+                  <Button fx:id="quitButton" mnemonicParsing="false" onAction="#onActionQuit" text="Salir" />
                </children>
             </VBox>
          </center>

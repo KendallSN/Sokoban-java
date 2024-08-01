@@ -27,7 +27,7 @@
                         <Insets top="50.0" />
                      </padding>
                      <children>
-                        <Button fx:id="level1Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="1" />
+                        <Button fx:id="level1Button" focusTraversable="false" mnemonicParsing="false" onAction="#onActionTest" prefHeight="134.0" prefWidth="88.0" text="1" />
                         <Button fx:id="level2Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="2" />
                         <Button fx:id="level3Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="3" />
                         <Button fx:id="level4Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="4" />
@@ -37,7 +37,7 @@
                   <VBox alignment="CENTER" prefHeight="275.0" prefWidth="1100.0" spacing="50.0">
                      <children>
                           <Button fx:id="returnMenuButton" alignment="CENTER" focusTraversable="false" onAction="#switchToPrimary" prefHeight="57.0" prefWidth="201.0" text="Volver al Menu" />
-                        <Button fx:id="quitButton" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#onActionTest" prefHeight="57.0" prefWidth="201.0" text="Salir" />
+                        <Button fx:id="quitButton" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#onActionQuit" prefHeight="57.0" prefWidth="201.0" text="Salir" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
