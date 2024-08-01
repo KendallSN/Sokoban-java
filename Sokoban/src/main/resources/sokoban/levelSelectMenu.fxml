@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane minHeight="600.0" minWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.levelSelectMenuController">
+<AnchorPane minHeight="700.0" minWidth="1100.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.levelSelectMenuController">
    <children>
-      <BorderPane minHeight="600.0" minWidth="900.0">
+      <BorderPane minHeight="600.0" minWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
               <Label text="Seleccionar Nivel" BorderPane.alignment="CENTER">
                <font>
@@ -71,7 +70,7 @@
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
                <children>
                     <Button fx:id="returnMenuButton" alignment="TOP_CENTER" onAction="#switchToPrimary" text="Volver al Menu" />
-                  <Button fx:id="quitButton" mnemonicParsing="false" text="Salir" />
+                  <Button fx:id="quitButton" mnemonicParsing="false" onAction="#onActionTest" text="Salir" />
                </children>
             </HBox>
          </bottom>

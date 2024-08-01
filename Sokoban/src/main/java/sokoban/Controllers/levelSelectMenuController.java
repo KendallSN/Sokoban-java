@@ -32,4 +32,8 @@ public class levelSelectMenuController {
     private void switchToPrimary() throws IOException {
         App.setRoot("mainMenu");
     }
+    @FXML
+    private void onActionTest() throws IOException {
+        App.setRoot("game");
+    }
 }
