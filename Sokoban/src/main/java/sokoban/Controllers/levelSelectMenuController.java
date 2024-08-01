@@ -7,20 +7,20 @@ import javafx.scene.image.ImageView;
 import sokoban.App;
 
 public class levelSelectMenuController {
-     @FXML
-    private ImageView level1ImageView;
+    @FXML
+    private Button level1Button;
+    
+    @FXML
+    private Button level2Button;
 
     @FXML
-    private ImageView level2ImageView;
+    private Button level3Button;
 
     @FXML
-    private ImageView level3ImageView;
+    private Button level4Button;
 
     @FXML
-    private ImageView level4ImageView;
-
-    @FXML
-    private ImageView level5ImageView;
+    private Button level5Button;
 
     @FXML
     private Button quitButton;

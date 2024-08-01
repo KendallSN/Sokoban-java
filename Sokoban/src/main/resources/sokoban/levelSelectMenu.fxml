@@ -3,8 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -22,58 +20,32 @@
             </Label>
          </top>
          <center>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="432.0" prefWidth="1100.0" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                  <HBox alignment="CENTER" prefHeight="204.0" prefWidth="1100.0" spacing="50.0">
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
                      <children>
-                        <ImageView fx:id="level1ImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/fondoPlaya.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="level2ImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/fondoPlaya.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="level3ImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/fondoPlaya.png" />
-                           </image>
-                        </ImageView>
+                        <Button fx:id="level1Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="1" />
+                        <Button fx:id="level2Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="2" />
+                        <Button fx:id="level3Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="3" />
+                        <Button fx:id="level4Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="4" />
+                        <Button fx:id="level5Button" focusTraversable="false" mnemonicParsing="false" prefHeight="134.0" prefWidth="88.0" text="5" />
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" prefHeight="275.0" prefWidth="1100.0" spacing="50.0">
+                     <children>
+                          <Button fx:id="returnMenuButton" alignment="CENTER" focusTraversable="false" onAction="#switchToPrimary" prefHeight="57.0" prefWidth="201.0" text="Volver al Menu" />
+                        <Button fx:id="quitButton" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#onActionTest" prefHeight="57.0" prefWidth="201.0" text="Salir" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
                      </padding>
-                  </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
-                     <children>
-                        <ImageView fx:id="level4ImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/fondoPlaya.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="level5ImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/fondoPlaya.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets top="50.0" />
-                     </padding>
-                  </HBox>
+                  </VBox>
                </children>
             </VBox>
          </center>
-         <bottom>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
-               <children>
-                    <Button fx:id="returnMenuButton" alignment="TOP_CENTER" onAction="#switchToPrimary" text="Volver al Menu" />
-                  <Button fx:id="quitButton" mnemonicParsing="false" onAction="#onActionTest" text="Salir" />
-               </children>
-            </HBox>
-         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
