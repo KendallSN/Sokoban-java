@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1100.0" minHeight="700.0" minWidth="1100.0" pickOnBounds="false" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.gameController">
+<AnchorPane maxHeight="700.0" maxWidth="1100.0" minHeight="700.0" minWidth="1100.0" onKeyPressed="#keyPressed" pickOnBounds="false" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.gameController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -21,7 +21,7 @@
       </ImageView>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <GridPane fx:id="gameGrid" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+            <GridPane fx:id="gameGrid" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -58,8 +58,8 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#action" text="Button" />
                         <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" onAction="#quitToMenu" text="Button" />
                      </children>
                   </VBox>
                </children>

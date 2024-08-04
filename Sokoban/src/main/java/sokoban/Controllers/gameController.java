@@ -6,24 +6,30 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import sokoban.App;
 import sokoban.models.GameEngine;
 
 public class gameController implements Initializable{
-    GameEngine gameEngine = new GameEngine();
+    GameEngine gameEngine;
     
     @FXML
     private GridPane gameGrid;
-
-    private String test="-fx-background-image:url('textures/a.png'); -fx-background-size:cover;";
+    
     @FXML
-    public void action() {
-        
+    void keyPressed(KeyEvent event) {
+        gameEngine.keyPressed(event.getText());
+    }
+    @FXML
+    void quitToMenu(ActionEvent event) throws IOException {
+        App.setRoot("mainMenu");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.gameEngine= new GameEngine();
         gameEngine.initializeGameGrid(gameGrid);
-        gameEngine.loadSelectedLevel(levelSelectMenuController.lvlSelected,gameGrid);
+        gameEngine.loadSelectedLevel(levelSelectMenuController.lvlSelected);
     }
+    
 }

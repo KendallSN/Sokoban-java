@@ -5,17 +5,21 @@ public class NodeGrid {
     private NodeGrid down;
     private NodeGrid left;
     private NodeGrid right;
-    private char element;
-    NodeGrid(char element) {
+    private char character;
+
+    public void setCharacter(char character) {
+        this.character = character;
+    }
+    NodeGrid(char character) {
         this.up=null;
         this.down=null;
         this.left=null;
         this.right=null;
-        this.element=element;
+        this.character=character;
     }
 
-    public char getElement() {
-        return element;
+    public char getCharacter() {
+        return character;
     }
 
     public NodeGrid getUp() {

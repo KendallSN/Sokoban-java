@@ -31,20 +31,6 @@ public class mainMenuController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        FileTextReader a= new FileTextReader();
-        
-        char[] miVectorDeChar = a.getListaChar().get(4);
-        
-        ListGrid listGrid = new ListGrid(11,11, miVectorDeChar);
-        
-        for (int i = 0; i < 11; i++) {
-            for (int k = 0; k < 11; k++) {
-                System.out.print(listGrid.getElement(i, k).getElement()+" ");
-            } 
-             System.out.println("");
-        }
-        
     }
 
 }

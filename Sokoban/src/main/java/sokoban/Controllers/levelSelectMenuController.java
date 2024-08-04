@@ -37,32 +37,33 @@ public class levelSelectMenuController {
     }
     @FXML
     void pressLvl1Button(ActionEvent event) throws IOException {
-        App.setRoot("game");
         lvlSelected=1;
+        App.setRoot("game");
     }
 
     @FXML
     void pressLvl2Button(ActionEvent event) throws IOException {
-        App.setRoot("game");
         lvlSelected=2;
+        App.setRoot("game");
+        
     }
 
     @FXML
     void pressLvl3Button(ActionEvent event) throws IOException {
-        App.setRoot("game");
         lvlSelected=3;
+        App.setRoot("game");
     }
 
     @FXML
     void pressLvl4Button(ActionEvent event) throws IOException {
-        App.setRoot("game");
         lvlSelected=4;
+        App.setRoot("game");
     }
 
     @FXML
     void pressLvl5Button(ActionEvent event) throws IOException {
-        App.setRoot("game");
         lvlSelected=5;
+        App.setRoot("game");
     }
     @FXML
     void onActionQuit(ActionEvent event) {
