@@ -13,16 +13,23 @@ import sokoban.models.FileTextReader;
 import sokoban.models.ListGrid;
 
 public class mainMenuController implements Initializable{
+    public static boolean continueFromSave;
     
     @FXML
     public Button actionButton;
     @FXML
     private void newGameOnAction() throws IOException {
+        continueFromSave=false;
         App.setRoot("levelSelectMenu");
     }
     @FXML
-    void continueOnAction(ActionEvent event) {
+    void continueOnAction(ActionEvent event) throws IOException {
+        if (FileTextReader.isLevelSaved()) {
+            continueFromSave=true;
+            App.setRoot("game");
+        }else{
         
+        }
     }
     @FXML
     void quitOnAction(ActionEvent event) {

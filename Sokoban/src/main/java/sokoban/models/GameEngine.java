@@ -8,8 +8,11 @@ public class GameEngine {
 
     private GridPane gameGrid;
     private ListGrid selectedLevel;
+
+    public ListGrid getCurrentLevel() {
+        return currentLevel;
+    }
     private ListGrid currentLevel;
-    private FileTextReader fileTextReader= new FileTextReader();
     private char characterFacing='D';
     private String stylePart1="-fx-background-image:url('textures/";
     private String stylePart2=".png'); -fx-background-size:cover;";
@@ -20,21 +23,30 @@ public class GameEngine {
     }
     
     public void loadSelectedLevel(int lvlSelected) {
-    selectedLevel = new ListGrid(11,11, fileTextReader.getListaChar().get(lvlSelected-1));
-    currentLevel = new ListGrid(11,11, fileTextReader.getListaChar().get(lvlSelected-1));
-    this.saveCharacterPosition();
-        System.out.println(this.characterX+" "+this.characterY);
-    this.refreshLevel();
+        selectedLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(lvlSelected-1));
+        currentLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(lvlSelected-1));
+        this.saveCharacterPosition();
+        this.refreshLevel();
+    }
+    public void loadSavedLevel() {
+        selectedLevel = new ListGrid(11,11,FileTextReader.getLevelsList().get(Character.getNumericValue(FileTextReader.getSavedLevel()[121]-1)) );
+        currentLevel = new ListGrid(11,11, FileTextReader.getSavedLevel());
+        this.saveCharacterPosition();
+        this.refreshLevel();
     }
     
     public void refreshLevel() {
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
-                paint(currentLevel.getElement(i, j).getCharacter(),i,j);
+                if(currentLevel.getElement(i, j).getCharacter()=='$'){
+                    paintBox(i, j);
+                }else{
+                    paint(currentLevel.getElement(i, j).getCharacter(),i,j);
+                }
             }
         }
     }
-    
+
     private void paint(char character,int i,int j){
         //j*11+1 = La posicion del panel i,j en el gameGrid
         gameGrid.getChildren().get((j*11)+i).setStyle(stylePart1+charToTexture(character)+stylePart2);
@@ -194,4 +206,5 @@ public class GameEngine {
         }
         this.currentLevel.getElement(x, y).setCharacter('$');
     }
+
 }

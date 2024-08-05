@@ -56,10 +56,10 @@
          <right>
             <Pane opacity="0.94" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="50.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Button" />
-                        <Button mnemonicParsing="false" onAction="#quitToMenu" text="Button" />
+                        <Button mnemonicParsing="false" onAction="#saveLevel" text="Guardar" />
+                        <Button mnemonicParsing="false" onAction="#quitToMenu" text="Salir" />
                      </children>
                   </VBox>
                </children>

@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import sokoban.App;
+import sokoban.models.FileTextReader;
 import sokoban.models.GameEngine;
 
 public class gameController implements Initializable{
@@ -22,6 +23,10 @@ public class gameController implements Initializable{
         gameEngine.keyPressed(event.getText());
     }
     @FXML
+    void saveLevel(ActionEvent event) {
+        FileTextReader.saveLevel(gameEngine.getCurrentLevel(), levelSelectMenuController.lvlSelected);
+    }
+    @FXML
     void quitToMenu(ActionEvent event) throws IOException {
         App.setRoot("mainMenu");
     }
@@ -29,7 +34,10 @@ public class gameController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         this.gameEngine= new GameEngine();
         gameEngine.initializeGameGrid(gameGrid);
-        gameEngine.loadSelectedLevel(levelSelectMenuController.lvlSelected);
+        if(mainMenuController.continueFromSave){
+            gameEngine.loadSavedLevel();
+        }else{
+            gameEngine.loadSelectedLevel(levelSelectMenuController.lvlSelected);
+        }
     }
-    
 }
