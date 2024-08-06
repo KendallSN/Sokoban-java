@@ -24,12 +24,13 @@ public class victoryController {
     private Button returnMenuButton;
     
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void onActionSelectLevel() throws IOException {
         App.setRoot("levelSelectMenu");
     }
     @FXML
-    private void doAction() throws IOException {
-        switchToSecondary();
+    private void onActionReplay() throws IOException {
+        gameController.onReplay=true;
+        App.setRoot("game");
     }
     @FXML
     void onActionQuit(ActionEvent event) {

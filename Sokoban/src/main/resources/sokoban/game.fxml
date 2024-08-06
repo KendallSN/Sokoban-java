@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1100.0" minHeight="700.0" minWidth="1100.0" onKeyPressed="#keyPressed" pickOnBounds="false" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.gameController">
+<AnchorPane maxHeight="700.0" maxWidth="1100.0" minHeight="700.0" minWidth="1100.0" onKeyPressed="#keyPressed" pickOnBounds="false" stylesheets="@../css/StyleSokoban.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.gameController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -54,12 +54,14 @@
             </GridPane>
          </center>
          <right>
-            <Pane opacity="0.94" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
+            <Pane opacity="0.94" prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="50.0">
+                  <VBox alignment="CENTER" prefHeight="700.0" prefWidth="300.0" spacing="150.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#saveLevel" text="Guardar" />
-                        <Button mnemonicParsing="false" onAction="#quitToMenu" text="Salir" />
+                        <Button mnemonicParsing="false" onAction="#restartOnAction" text="Reiniciar" />
+                        <Button mnemonicParsing="false" onAction="#quitToMenu" text="Volver al Menu" />
+                        <Button mnemonicParsing="false" onAction="#quitOnAction" text="Salir" />
                      </children>
                   </VBox>
                </children>

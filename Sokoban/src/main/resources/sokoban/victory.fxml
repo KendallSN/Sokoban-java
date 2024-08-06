@@ -13,9 +13,9 @@
          <center>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="nextButton" onAction="#switchToSecondary" text="Siguiente" />
-                  <Button fx:id="repetitionButton" onAction="#doAction" text="Repetición" />
-                  <Button fx:id="levelSelectionButton" mnemonicParsing="false" onAction="#switchToSecondary" text="Seleccionar Nivel" />
+                  <Button fx:id="nextButton" onAction="#onActionSelectLevel" text="Siguiente" />
+                  <Button fx:id="repetitionButton" onAction="#onActionReplay" text="Repetición" />
+                  <Button fx:id="levelSelectionButton" mnemonicParsing="false" onAction="#onActionSelectLevel" text="Seleccionar Nivel" />
                   <Button fx:id="returnMenuButton" mnemonicParsing="false" onAction="#onActionReturnMenu" text="Volver al Menu" />
                   <Button fx:id="quitButton" mnemonicParsing="false" onAction="#onActionQuit" text="Salir" />
                </children>

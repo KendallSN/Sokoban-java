@@ -26,6 +26,7 @@ public class mainMenuController implements Initializable{
     void continueOnAction(ActionEvent event) throws IOException {
         if (FileTextReader.isLevelSaved()) {
             continueFromSave=true;
+            gameController.onReplay=false;
             App.setRoot("game");
         }else{
         

@@ -38,31 +38,35 @@ public class levelSelectMenuController {
     @FXML
     void pressLvl1Button(ActionEvent event) throws IOException {
         lvlSelected=1;
+        gameController.onReplay=false;
         App.setRoot("game");
     }
 
     @FXML
     void pressLvl2Button(ActionEvent event) throws IOException {
         lvlSelected=2;
+        gameController.onReplay=false;
         App.setRoot("game");
-        
     }
 
     @FXML
     void pressLvl3Button(ActionEvent event) throws IOException {
         lvlSelected=3;
+        gameController.onReplay=false;
         App.setRoot("game");
     }
 
     @FXML
     void pressLvl4Button(ActionEvent event) throws IOException {
         lvlSelected=4;
+        gameController.onReplay=false;
         App.setRoot("game");
     }
 
     @FXML
     void pressLvl5Button(ActionEvent event) throws IOException {
         lvlSelected=5;
+        gameController.onReplay=false;
         App.setRoot("game");
     }
     @FXML

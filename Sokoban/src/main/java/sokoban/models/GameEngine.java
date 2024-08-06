@@ -1,38 +1,73 @@
 package sokoban.models;
 
-import javafx.scene.input.KeyCode;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import sokoban.App;
 
 public class GameEngine {
 
     private GridPane gameGrid;
     private ListGrid selectedLevel;
 
+    public int getCurrentLevelID() {
+        return currentLevelID;
+    }
+
     public ListGrid getCurrentLevel() {
         return currentLevel;
     }
     private ListGrid currentLevel;
     private char characterFacing='D';
-    private String stylePart1="-fx-background-image:url('textures/";
-    private String stylePart2=".png'); -fx-background-size:cover;";
+    private final String stylePart1="-fx-background-image:url('textures/";
+    private final String stylePart2=".png'); -fx-background-size:cover;";
     private int characterX;
     private int characterY;
+    private int currentLevelID;
+    private final Stack<int[]> boxesOnX;
+    private ArrayList<Character> steps;
+    private boolean onReplay;
+    private Timer timer;
+
+    public Timer getTimer() {
+        return timer;
+    }
             
     public GameEngine() {
+    boxesOnX = new Stack<>();
     }
     
     public void loadSelectedLevel(int lvlSelected) {
-        selectedLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(lvlSelected-1));
-        currentLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(lvlSelected-1));
+        onReplay=false;
+        this.currentLevelID=lvlSelected-1;
+        selectedLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
+        currentLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
+        steps= new ArrayList<>();
         this.saveCharacterPosition();
         this.refreshLevel();
     }
     public void loadSavedLevel() {
-        selectedLevel = new ListGrid(11,11,FileTextReader.getLevelsList().get(Character.getNumericValue(FileTextReader.getSavedLevel()[121]-1)) );
+        onReplay=false;
+        this.currentLevelID=FileTextReader.getSavedLevelID();
+        selectedLevel = new ListGrid(11,11,FileTextReader.getLevelsList().get(this.currentLevelID) );
         currentLevel = new ListGrid(11,11, FileTextReader.getSavedLevel());
+        this.steps=FileTextReader.getSavedSteps();
         this.saveCharacterPosition();
         this.refreshLevel();
+    }
+    public void reproduceReplay(){
+        onReplay=true;
+        this.currentLevelID=FileTextReader.getWinnedLevelID();
+        selectedLevel = new ListGrid(11,11,FileTextReader.getLevelsList().get(this.currentLevelID) );
+        currentLevel = new ListGrid(11,11,FileTextReader.getLevelsList().get(this.currentLevelID) );
+        this.steps=FileTextReader.getWinnedSteps();
+        this.saveCharacterPosition();
+        this.refreshLevel();
+        this.playReplay();
     }
     
     public void refreshLevel() {
@@ -79,7 +114,8 @@ public class GameEngine {
             this.gameGrid=gameGrid;
     }
 
-    public void keyPressed(String key) {
+    public void keyPressed(String key) throws IOException {
+        if(this.onReplay){return;}
         switch(key){
         case"W":this.moveCharacterUp();
             break;
@@ -99,6 +135,10 @@ public class GameEngine {
             break;
         default:break;
         }
+        if(this.isLevelCompleted()){
+            FileTextReader.saveWinnedLevel(currentLevel, this.currentLevelID, steps);
+            App.setRoot("victory");
+        }
     }
 
     private void moveCharacterUp() {
@@ -109,6 +149,7 @@ public class GameEngine {
         if(this.isFree(characterX-1, characterY)){
             this.eraseCharacter();
             characterX--;
+            if(!onReplay)this.steps.add('U');
         }
         this.characterFacing='U';
         this.paintCharacter();
@@ -122,6 +163,7 @@ public class GameEngine {
         if(this.isFree(characterX+1, characterY)){
             this.eraseCharacter();
             characterX++;
+            if(!onReplay)this.steps.add('D');
         }
         this.characterFacing='D';
         this.paintCharacter();
@@ -135,6 +177,7 @@ public class GameEngine {
         if(this.isFree(characterX, characterY-1)){
             this.eraseCharacter();
             characterY--;
+            if(!onReplay)this.steps.add('L');
         }
         this.characterFacing='L';
         this.paintCharacter();
@@ -148,6 +191,7 @@ public class GameEngine {
         if(this.isFree(characterX, characterY+1)){
             this.eraseCharacter();
             characterY++;
+            if(!onReplay)this.steps.add('R');
         }
         this.characterFacing='R';
         this.paintCharacter();
@@ -156,9 +200,7 @@ public class GameEngine {
     private boolean isBox(int x,int y){
         return this.currentLevel.getElement(x, y).getCharacter()=='$';
     }
-    private boolean isWall(int x,int y){
-        return this.currentLevel.getElement(x, y).getCharacter()=='#';
-    }
+
     private boolean isFree(int x, int y){
         return this.currentLevel.getElement(x, y).getCharacter()==' '||this.currentLevel.getElement(x, y).getCharacter()=='.';
     }
@@ -195,16 +237,81 @@ public class GameEngine {
     }
     
     private void eraseBox(int x,int y) {
+        if (this.selectedLevel.getElement(x, y).getCharacter() == '.') {
+            boxesOnX.removeIf(pos -> pos[0] == x && pos[1] == y);
+        }
         this.currentLevel.getElement(x, y).setCharacter(' ');
     }
     
     private void paintBox(int x,int y) {
+
         if(this.selectedLevel.getElement(x, y).getCharacter()=='.'){
             paint('-', x, y);
+            boxesOnX.push(new int[]{x, y});
         }else{
             paint('$', x, y);
         }
         this.currentLevel.getElement(x, y).setCharacter('$');
     }
+    
+    public boolean isLevelCompleted() {
+        return boxesOnX.size() == countTotalTargets();
+    }
 
+    private int countTotalTargets() {
+        int totalX = 0;
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                if (selectedLevel.getElement(i, j).getCharacter() == '.') {
+                    totalX++;
+                }
+            }
+        }
+        return totalX;
+    }
+
+    public ArrayList<Character> getSteps() {
+        return this.steps;
+    }
+
+    private void playReplay() {
+    timer = new Timer();
+        TimerTask task = new TimerTask() {
+        int index = 0;
+        @Override
+        public void run() {
+            if (index < steps.size()) {
+                switch(steps.get(index)){
+                case'U':moveCharacterUp();
+                    break;
+                case'D':moveCharacterDown();
+                    break;
+                case'L':moveCharacterLeft();
+                    break;
+                case'R':moveCharacterRight();
+                    break;
+                }
+                index++;
+                if(isLevelCompleted()){
+                    FileTextReader.saveWinnedLevel(currentLevel, currentLevelID, steps);
+                    try {
+                        App.setRoot("victory");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            } else {
+                timer.cancel();
+            }
+        }
+        };
+        timer.schedule(task, 0, 500);
+    }
+
+    public void restartLevel() {
+        currentLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
+        steps= new ArrayList<>();
+        this.saveCharacterPosition();
+        this.refreshLevel();
+    }
 }
