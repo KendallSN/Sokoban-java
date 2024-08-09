@@ -26,6 +26,7 @@ public class mainMenuController implements Initializable{
     void continueOnAction(ActionEvent event) throws IOException {
         if (FileTextReader.isLevelSaved()) {
             continueFromSave=true;
+            gameController.goNextLevel=false;
             gameController.onReplay=false;
             App.setRoot("game");
         }else{
@@ -39,6 +40,7 @@ public class mainMenuController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
 
 }

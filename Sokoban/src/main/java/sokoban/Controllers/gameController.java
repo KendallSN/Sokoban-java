@@ -7,7 +7,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.input.KeyCode;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import sokoban.App;
@@ -15,8 +15,14 @@ import sokoban.models.FileTextReader;
 import sokoban.models.GameEngine;
 
 public class gameController implements Initializable{
+
+   
     GameEngine gameEngine;
+    static boolean goNextLevel;
     public static boolean onReplay;
+    @FXML
+    private Label replayLabel;
+
     @FXML
     private GridPane gameGrid;
     
@@ -48,17 +54,21 @@ public class gameController implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.replayLabel.setVisible(onReplay);
         this.gameEngine= new GameEngine();
         this.gameEngine.initializeGameGrid(gameGrid);
-        if(onReplay){
-            gameEngine.reproduceReplay();
-        }else {
-            FileTextReader.deleteWinnedLevel();
-            if(mainMenuController.continueFromSave){
-                gameEngine.loadSavedLevel();
-            }else{
-                gameEngine.loadSelectedLevel(levelSelectMenuController.lvlSelected);
+        if(goNextLevel){
+        FileTextReader.deleteWinnedLevel();
+        gameEngine.loadNextLevel(victoryController.winnedLevel+1);
+        }else if(onReplay){
+                gameEngine.reproduceReplay();
+            }else {
+                FileTextReader.deleteWinnedLevel();
+                if(mainMenuController.continueFromSave){
+                    gameEngine.loadSavedLevel();
+                }else{
+                    gameEngine.loadSelectedLevel(levelSelectMenuController.lvlSelected);
+                }
             }
         }
-    }
 }

@@ -27,7 +27,7 @@ public class GameEngine {
     private final String stylePart2=".png'); -fx-background-size:cover;";
     private int characterX;
     private int characterY;
-    private int currentLevelID;
+    public static int currentLevelID;
     private final Stack<int[]> boxesOnX;
     private ArrayList<Character> steps;
     private boolean onReplay;
@@ -36,7 +36,7 @@ public class GameEngine {
     public Timer getTimer() {
         return timer;
     }
-            
+
     public GameEngine() {
     boxesOnX = new Stack<>();
     }
@@ -44,6 +44,15 @@ public class GameEngine {
     public void loadSelectedLevel(int lvlSelected) {
         onReplay=false;
         this.currentLevelID=lvlSelected-1;
+        selectedLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
+        currentLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
+        steps= new ArrayList<>();
+        this.saveCharacterPosition();
+        this.refreshLevel();
+    }
+    public void loadNextLevel(int nextLevel) {
+        onReplay=false;
+        this.currentLevelID=nextLevel;
         selectedLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
         currentLevel = new ListGrid(11,11, FileTextReader.getLevelsList().get(this.currentLevelID));
         steps= new ArrayList<>();
