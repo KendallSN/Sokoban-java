@@ -70,7 +70,7 @@
             </Pane>
          </right>
       </BorderPane>
-      <Label fx:id="replayLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="299.0" text="Repetición" AnchorPane.bottomAnchor="0.0">
+      <Label fx:id="replayLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="299.0" styleClass="replay-label" text="Repetición" AnchorPane.bottomAnchor="0.0">
          <font>
             <Font name="Arial Black" size="48.0" />
          </font>

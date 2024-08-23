@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -37,6 +38,17 @@
                </children>
             </VBox>
          </center>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="1100.0" spacing="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" styleClass="names-label" text="Kendall Salazar Navarro" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="names-label" text="Joselyn Morales Roman" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>

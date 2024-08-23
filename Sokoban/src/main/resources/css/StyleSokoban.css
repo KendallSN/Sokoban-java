@@ -3,12 +3,22 @@
     src: url('Starborn.ttf');
 }
 .root {
-    -fx-font-family: 'Starborn';   
+    -fx-font-family: 'Starborn';
 }
 .label{
     -fx-font-family: 'Starborn';
     -fx-text-fill: #ffc44d;
     -fx-font-size: 64px;
+}
+.replay-label{
+    -fx-font-family: 'Starborn';
+    -fx-text-fill: red;
+    -fx-font-size: 40px;
+}
+.names-label{
+    -fx-font-family: 'Starborn';
+    -fx-text-fill: #42b8a8;
+    -fx-font-size: 15px;
 }
 .game-pane{
     -fx-background-color:  #52decb;
