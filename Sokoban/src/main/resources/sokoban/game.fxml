@@ -56,7 +56,7 @@
             </GridPane>
          </center>
          <right>
-            <Pane opacity="0.94" prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
+            <Pane opacity="0.94" prefHeight="700.0" prefWidth="300.0" styleClass="game-pane" BorderPane.alignment="CENTER">
                <children>
                   <VBox alignment="CENTER" prefHeight="700.0" prefWidth="300.0" spacing="150.0">
                      <children>

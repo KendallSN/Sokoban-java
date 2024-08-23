@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="700.0" minWidth="1100.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.levelSelectMenuController">
+<AnchorPane minHeight="700.0" minWidth="1100.0" stylesheets="@../css/StyleSokoban.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sokoban.Controllers.levelSelectMenuController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,7 +22,7 @@
          <top>
               <Label text="Seleccionar Nivel" BorderPane.alignment="CENTER">
                <font>
-                  <Font size="72.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
          </top>
@@ -34,17 +34,23 @@
                         <Insets top="50.0" />
                      </padding>
                      <children>
-                        <Button fx:id="level1Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl1Button" prefHeight="134.0" prefWidth="88.0" text="1" />
-                        <Button fx:id="level2Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl2Button" prefHeight="134.0" prefWidth="88.0" text="2" />
-                        <Button fx:id="level3Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl3Button" prefHeight="134.0" prefWidth="88.0" text="3" />
-                        <Button fx:id="level4Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl4Button" prefHeight="134.0" prefWidth="88.0" text="4" />
-                        <Button fx:id="level5Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl5Button" prefHeight="134.0" prefWidth="88.0" text="5" />
+                        <Button fx:id="level1Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl1Button" prefHeight="134.0" prefWidth="88.0" styleClass="level-button" text="1" />
+                        <Button fx:id="level2Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl2Button" prefHeight="134.0" prefWidth="88.0" styleClass="level-button" text="2" />
+                        <Button fx:id="level3Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl3Button" prefHeight="134.0" prefWidth="88.0" styleClass="level-button" text="3" />
+                        <Button fx:id="level4Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl4Button" prefHeight="134.0" prefWidth="88.0" styleClass="level-button" text="4" />
+                        <Button fx:id="level5Button" focusTraversable="false" mnemonicParsing="false" onAction="#pressLvl5Button" prefHeight="134.0" prefWidth="88.0" styleClass="level-button" text="5" />
                      </children>
                   </HBox>
                   <VBox alignment="CENTER" prefHeight="275.0" prefWidth="1100.0" spacing="50.0">
                      <children>
-                          <Button fx:id="returnMenuButton" alignment="CENTER" focusTraversable="false" onAction="#switchToPrimary" prefHeight="57.0" prefWidth="201.0" text="Volver al Menu" />
-                        <Button fx:id="quitButton" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#onActionQuit" prefHeight="57.0" prefWidth="201.0" text="Salir" />
+                          <Button fx:id="returnMenuButton" alignment="CENTER" focusTraversable="false" onAction="#switchToPrimary" prefHeight="57.0" prefWidth="201.0" text="Volver al Menu">
+                           <font>
+                              <Font name="Serif Regular" size="15.0" />
+                           </font></Button>
+                        <Button fx:id="quitButton" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#onActionQuit" prefHeight="57.0" prefWidth="201.0" text="Salir">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
                      </children>
                      <padding>
                         <Insets top="50.0" />
