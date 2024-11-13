@@ -1,4 +1,4 @@
-package sokoban.Controllers;
+package sokoban.controllers;
 
 import java.io.IOException;
 import java.net.URL;
